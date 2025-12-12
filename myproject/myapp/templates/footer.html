@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film. Frame. Fashion.</title>
+    <link rel="stylesheet" href="{% static 'footer.css' %}">
+</head>
+<body>
+    <footer class="footer">
+
+    <div class="footer-left">
+        <img src="{% static 'img/company_logo.png' %}" class="footer-logo" alt="">
+        <p>Premium cinema-inspired apparel for true cinephiles. Where film culture meets fashion.</p>
+
+        <div class="footer-social">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+        </div>
+    </div>
+
+    <div class="footer-links">
+        <div class="link-box">
+            <h4>Quick Links</h4>
+            <a href="#">Shop All</a>
+            <a href="#">Categories</a>
+            <a href="#">New Arrivals</a>
+            <a href="#">Sale</a>
+            <a href="#">About Us</a>
+        </div>
+
+        <div class="link-box">
+            <h4>Customer Service</h4>
+            <a href="#">Contact Us</a>
+            <a href="#">Shipping Info</a>
+            <a href="#">Returns</a>
+            <a href="#">Size Guide</a>
+            <a href="#">FAQ</a>
+        </div>
+
+        <div class="link-box">
+            <h4>Stay Updated</h4>
+            <p>Subscribe to get updates on new releases and exclusive offers.</p>
+            <input type="email" placeholder="Enter your email">
+            <button class="subscribe-btn">Subscribe</button>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        © 2024 Infinite Cinephile. All rights reserved.
+    </div>
+
+</footer>
+
+</body>
+</html>
+{% block content %}{% endblock %}

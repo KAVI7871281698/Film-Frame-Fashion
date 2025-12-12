@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'contact.css' %}" />
+
+<section class="back-link">
+    <a href="javascript:history.back()">← Back to Home</a>
+</section>
+
+<section class="contact-hero">
+    <h1>Contact Us</h1>
+    <p>
+        Have a question about our cinema-inspired fashion? Need help with an order?
+        We’re here to help fellow cinephiles.
+    </p>
+</section>
+
+<div class="contact-layout">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="contact-sidebar">
+
+        <div class="card">
+            <h3>📩 Get In Touch</h3>
+            <p><strong>Email</strong><br>hello@infinitecinephile.com</p>
+            <p><strong>Phone</strong><br>+91 12345 67890</p>
+            <p>
+                <strong>Address</strong><br>
+                Film District, Cinema Street,<br>
+                Mumbai, Maharashtra 400001, India
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🕒 Business Hours</h3>
+            <p>Monday - Friday: 10:00 AM - 7:00 PM</p>
+            <p>Saturday: 11:00 AM - 6:00 PM</p>
+            <p>Sunday: Closed</p>
+        </div>
+
+        <div class="card">
+            <h3>📌 Support Categories</h3>
+            <ul>
+                <li>Order Support</li>
+                <li>Shipping & Delivery</li>
+                <li>Returns & Exchanges</li>
+                <li>General Inquiries</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>📱 Follow Us</h3>
+            <div class="social-icons">
+                <a href="#" class="icon-instagram" aria-label="Instagram"></a>
+                <a href="#" class="icon-facebook" aria-label="Facebook"></a>
+                <a href="#" class="icon-twitter" aria-label="Twitter"></a>
+                <a href="#" class="icon-youtube" aria-label="YouTube"></a>
+            </div>
+        </div>
+
+    </aside>
+
+
+    <!-- RIGHT CONTENT AREA -->
+    <main class="contact-main">
+
+        <div class="form-card">
+            <h3>✉ Send Us a Message</h3>
+            <p>Fill out the form below and we’ll get back to you as soon as possible.</p>
+
+            <form>
+                <div class="form-row">
+                    <input type="text" placeholder="Full Name *" />
+                    <input type="email" placeholder="Email Address *" />
+                </div>
+
+                <select>
+                    <option>Select a category...</option>
+                    <option>Order Issue</option>
+                    <option>Shipping Delay</option>
+                    <option>Returns / Exchange</option>
+                    <option>Product Inquiry</option>
+                </select>
+
+                <input type="text" placeholder="Brief subject line" />
+                <textarea placeholder="Tell us how we can help you..."></textarea>
+
+                <button class="send-btn">📨 Send Message</button>
+            </form>
+        </div>
+
+        <div class="faq-card">
+            <h3>Frequently Asked Questions</h3>
+
+            <p><strong>How long does shipping take?</strong><br>Standard shipping takes 3-7 business days within India. Express options available.</p>
+
+            <p><strong>Can I return or exchange items?</strong><br>Yes! We allow 30-day returns for size exchanges. Items must be unworn with tags.</p>
+
+            <p><strong>Do you offer custom designs?</strong><br>Yes — check out our Custom Services for DTF-based design printing.</p>
+
+            <p><strong>How can I track my order?</strong><br>You’ll receive tracking details via email after purchase.</p>
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- URGENT HELP BLOCK -->
+<section class="urgent-help">
+    <h2>Need Immediate Help?</h2>
+    <p>
+        For urgent order issues or time-sensitive inquiries, reach out to us directly.
+    </p>
+
+    <div class="urgent-btns">
+        <button class="email-support">📧 Email Support</button>
+        <button class="call-support">📞 Call Us</button>
+    </div>
+</section>
+
+{% endblock %}

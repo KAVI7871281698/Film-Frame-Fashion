@@ -1,0 +1,129 @@
+:root {
+    --primary: #4EA685;
+    --secondary: #57B894;
+    --white: #ffffff;
+    --gray: #efefef;
+    --gray-2: #757575;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+}
+
+html, body {
+    height: 100vh;
+}
+
+.auth-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* animated background curve */
+.auth-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 300vw;
+    transform: translate(35%, 0);
+    background-image: linear-gradient(-45deg, var(--primary), var(--secondary));
+    box-shadow: rgba(0,0,0,0.35) 0 5px 15px;
+    border-bottom-right-radius: max(60vw, 50vh);
+    border-top-left-radius: max(60vw, 50vh);
+    animation: bgslide 1s ease-in-out forwards;
+}
+
+@keyframes bgslide {
+    from { transform: translate(100%, 0); }
+    to   { transform: translate(35%, 0); }
+}
+
+/* Form Card */
+.auth-card {
+    z-index: 10;
+    width: 90%;
+    max-width: 420px;
+    background: var(--white);
+    padding: 30px 25px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: rgba(0,0,0,0.35) 0 5px 15px;
+    animation: fadeUp 0.8s ease-in-out;
+}
+
+@keyframes fadeUp {
+    from { transform: scale(0.5); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+}
+
+/* Title */
+.auth-card h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+/* input styling */
+.input-group {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 40px;
+    background: var(--gray);
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+}
+
+.input-group i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: var(--gray-2);
+}
+
+/* button */
+button {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary);
+    color: var(--white);
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    margin-top: 8px;
+}
+
+button:hover {
+    background: #3b8b6f;
+}
+
+/* bottom text */
+.switch-text {
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+.switch-text a {
+    color: var(--primary);
+    font-weight: 600;
+}

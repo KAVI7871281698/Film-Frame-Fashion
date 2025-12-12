@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'collection.css' %}">
+
+<div class="back-link">
+    <a href="#">← Back to Home</a>
+</div>
+
+<div class="page-title">
+    <h1>Cinema Collections</h1>
+    <p>Discover our curated collections of premium cinema-inspired fashion.<br>
+    Each collection tells a story of film, frame, and fashion.</p>
+</div>
+
+<!-- Featured Collections -->
+<section class="section-heading">Featured Collections</section>
+<div class="card-grid">
+
+    <!-- Card 1 -->
+    <div class="collection-card gold">
+        <div class="top">
+            <span>🌟</span>
+            <h3>Signature Collection</h3>
+            <p>Film. Frame. Fashion.</p>
+        </div>
+        <div class="body">
+            <span class="badge">Featured</span>
+            <p>Flagship pieces representing the heart of cinematic fashion.<br>
+               Premium quality meets iconic design.</p>
+            <a href="#">Explore Collection →</a>
+        </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="collection-card purple">
+        <div class="top">
+            <span>💎</span>
+            <h3>Limited Edition Collections</h3>
+            <p>Exclusive Cinema Moments</p>
+        </div>
+        <div class="body">
+            <span class="badge">Featured</span>
+            <p>Drops celebrating cinema’s biggest nights, festivals, and legendary moments.</p>
+            <a href="#">Explore Collection →</a>
+        </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="collection-card darkblue">
+        <div class="top">
+            <span>🎬</span>
+            <h3>Premium Wear</h3>
+            <p>Elevated Streetwear</p>
+        </div>
+        <div class="body">
+            <span class="badge">Featured</span>
+            <p>Curated pieces with cinematic embroidery and premium appeal.</p>
+            <a href="#">Explore Collection →</a>
+        </div>
+    </div>
+</div>
+
+
+<!-- All Collections -->
+<section class="section-heading">All Collections</section>
+<div class="card-grid">
+
+    <div class="collection-card red">
+        <div class="top">
+            <span>📌</span>
+            <h3>Cinephile Tees</h3>
+            <p>Essential Cinema Apparel</p>
+        </div>
+        <div class="body">
+            <p>Classic tees with iconic designs & cinema references.</p>
+            <a href="#">View Collection</a>
+        </div>
+    </div>
+
+    <div class="collection-card teal">
+        <div class="top">
+            <span>🎁</span>
+            <h3>Accessories</h3>
+            <p>Complete Your Look</p>
+        </div>
+        <div class="body">
+            <p>Caps, badges, and phone cases for cinephiles.</p>
+            <a href="#">View Collection</a>
+        </div>
+    </div>
+
+    <div class="collection-card green">
+        <div class="top">
+            <span>⚙️</span>
+            <h3>Special Services</h3>
+            <p>Custom Cinema Creations</p>
+        </div>
+        <div class="body">
+            <p>Customized cinematic creation services.</p>
+            <a href="#">View Collection</a>
+        </div>
+    </div>
+</div>
+
+
+<!-- CTA Section -->
+<section class="cta-box">
+    <h3>Can't Find What You're Looking For?</h3>
+    <p>Explore our custom printing services or browse all products in our catalog.</p>
+
+    <div class="cta-btns">
+        <button class="primary">Browse All Products</button>
+        <button class="outline">Custom Services</button>
+    </div>
+</section>
+
+{% endblock %}

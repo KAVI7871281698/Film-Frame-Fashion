@@ -1,0 +1,251 @@
+/* ================= GLOBAL RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+}
+body {
+    background: #fafafa;
+    color: #333;
+}
+
+/* ================= BREADCRUMB ================= */
+.back-link {
+    margin: 15px 5%;
+    display: flex;
+    align-items: center;
+}
+.back-link a {
+    text-decoration: none;
+    color: #444;
+    font-size: 14px;
+}
+
+/* ================= HERO ================= */
+.contact-hero {
+    text-align: center;
+    padding: 20px 5%;
+    margin-bottom: 15px;
+}
+.contact-hero h1 {
+    font-size: 34px;
+    font-weight: 700;
+}
+.contact-hero p {
+    color: #555;
+    font-size: 15px;
+    margin-top: 5px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ================= LAYOUT WRAPPER ================= */
+.contact-layout {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    gap: 25px;
+    padding: 0 5%;
+}
+
+/* ================= CONTACT SIDEBAR ================= */
+.contact-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* general card style */
+.card {
+    padding: 18px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+}
+
+/* card headings */
+.card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* list links */
+.card ul {
+    list-style: none;
+}
+.card ul li {
+    padding: 5px 0;
+    font-size: 14px;
+    color: #444;
+}
+
+/* SOCIAL ICONS WRAPPER */
+.social-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    align-items: center;
+}
+
+/* COMMON ICON STYLE */
+.social-icons a {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+    border-radius: 6px;
+}
+
+/* HOVER EFFECT */
+.social-icons a:hover {
+    transform: scale(1.15);
+    filter: brightness(1.2);
+}
+
+/* ICON IMAGES */
+.icon-instagram {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/2111/2111463.png');
+}
+.icon-facebook {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/733/733547.png');
+}
+.icon-twitter {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/733/733579.png');
+}
+.icon-youtube {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/1384/1384060.png');
+}
+
+/* ================= MAIN CONTENT ================= */
+.contact-main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* form + FAQ cards */
+.form-card,
+.faq-card {
+    padding: 22px;
+    border-radius: 12px;
+    background: white;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.form-card h3,
+.faq-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* FORM GRID */
+.form-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.form-row input {
+    flex: 1;
+}
+
+/* input styling */
+input, select, textarea {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    outline: none;
+}
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #ff4d4d;
+}
+
+/* textarea */
+textarea {
+    height: 130px;
+}
+
+/* SEND BUTTON */
+.send-btn {
+    background: #ff4d4d;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+.send-btn:hover {
+    background: #e80000;
+}
+
+/* ================= FAQ TEXT ================= */
+.faq-card p {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+/* ================= URGENT HELP ================= */
+.urgent-help {
+    background: #ffe6e6;
+    padding: 40px 5%;
+    text-align: center;
+    margin-top: 30px;
+    border-radius: 12px;
+}
+.urgent-help h2 {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+.urgent-help p {
+    font-size: 14px;
+    color: #666;
+}
+.urgent-btns {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.email-support,
+.call-support {
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    font-size: 14px;
+}
+.email-support { background: red; color: white; }
+.call-support { border: 1px solid #bbb; background: white; }
+
+/* ================= RESPONSIVE ================= */
+@media(max-width: 991px){
+    .contact-layout { 
+        grid-template-columns: 1fr; 
+    }
+    .contact-hero p{
+        width: 90%;
+    }
+    .urgent-help {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media(max-width: 600px){
+    .contact-hero h1 { font-size: 28px; }
+}

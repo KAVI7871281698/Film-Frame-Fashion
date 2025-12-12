@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Cart</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'cart.css' %}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>🛒 Your Shopping Cart</h2>
+
+    {% if cart_items %}
+        {% for item in cart_items %}
+            <div class="cart-card">
+                
+                <img src="{{ item.add_to_cart_product.product_img.url }}" alt="Product">
+
+                <div class="details">
+                    <h4>{{ item.add_to_cart_product.product_name }}</h4>
+                    <p>Price: ₹{{ item.add_to_cart_product.product_price }}</p>
+                    <p>Subtotal: ₹{{ item.total_price }}</p>
+                </div>
+
+                <div class="qty-box">
+                    <a class="qty-btn" href="{% url 'decrease_quantity' item.id %}">−</a>
+                    <span class="qty-number">{{ item.quantity }}</span>
+                    <a class="qty-btn" href="{% url 'increase_quantity' item.id %}">+</a>
+                </div>
+
+                <a class="remove-btn" href="{% url 'remove_cart_item' item.id %}">
+                    Remove
+                </a>
+
+            </div>
+        {% endfor %}
+
+        <div class="summary-box">
+            <h3>Grand Total: ₹{{ total_amount }}</h3>
+        </div>
+
+    {% else %}
+        <p class="empty">Your cart is empty!</p>
+    {% endif %}
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'about.css' %}">
+
+<!-- Back Navigation -->
+<div class="back-link">
+    <a href="/">← Back to Home</a>
+</div>
+
+
+<!-- About Hero Section -->
+<section class="about-hero">
+    <img class="about-logo" src="{% static 'img/company_logo.png' %}">
+    <h1>About Infinite Cinephile</h1>
+    <p class="highlight-text">"Film. Frame. Fashion."</p>
+    <p class="about-subtext">
+        Where cinema meets fashion — creating wearable art that celebrates the magic of movies.
+        We transform the passion of film into premium apparel that tells your story.
+    </p>
+</section>
+
+
+<!-- Our Story -->
+<section class="our-story">
+    <h2>Our Story</h2>
+    <p>
+        Born from a deep love for cinema and fashion, Infinite Cinephile began as a simple idea:
+        to create clothing that captures the essence of film culture. We believe that movies shape
+        us, inspire us, and deserve to be celebrated in every aspect of our lives.
+    </p>
+    <p>
+        Our journey started with a question — “What if we could wear our favorite films?”
+        From iconic quotes to subtle cinematography references, each piece in our collection tells a
+        story film lovers can connect with.
+    </p>
+
+    <p class="highlight-text">
+        We don’t just make clothes — we create wearable conversations about the films we love.
+    </p>
+</section>
+
+
+<!-- Mission & Values -->
+<section class="mission">
+    <h2>Our Mission & Values</h2>
+
+    <div class="mission-grid">
+        <div class="mission-box">
+            <span class="icon">⭐</span>
+            <h3>Quality First</h3>
+            <p>Premium materials and craftsmanship in every piece.</p>
+        </div>
+
+        <div class="mission-box">
+            <span class="icon">❤️</span>
+            <h3>Cinema Passion</h3>
+            <p>Each design is rooted in genuine film appreciation.</p>
+        </div>
+
+        <div class="mission-box">
+            <span class="icon">🌍</span>
+            <h3>Community Focused</h3>
+            <p>Every purchase supports independent creativity and fandom culture.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- What Sets Us Apart -->
+<section class="sets-apart">
+    <h2>What Sets Us Apart</h2>
+
+    <div class="apart-grid">
+
+        <div class="apart-card">
+            <span class="icon">🎬</span>
+            <h3>Authentic Cinema References</h3>
+            <p>Every print tells a story only real film lovers recognize.</p>
+        </div>
+
+        <div class="apart-card">
+            <span class="icon">🧵</span>
+            <h3>Premium Quality</h3>
+            <p>Finest materials & printing techniques.</p>
+        </div>
+
+        <div class="apart-card">
+            <span class="icon">💎</span>
+            <h3>Limited Editions</h3>
+            <p>Exclusive releases tied to film festivals & seasons.</p>
+        </div>
+
+        <div class="apart-card">
+            <span class="icon">⚒️</span>
+            <h3>Custom Creations</h3>
+            <p>Bring your favorite movie moments to life.</p>
+        </div>
+
+        <div class="apart-card">
+            <span class="icon">🌐</span>
+            <h3>Global Cinelover Community</h3>
+            <p>Connect with cinephiles worldwide.</p>
+        </div>
+
+        <div class="apart-card">
+            <span class="icon">♻️</span>
+            <h3>Sustainable Fashion</h3>
+            <p>Eco-friendly materials & mindful production.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- Product Line section -->
+<section class="product-lines">
+    <h2>Our Product Lines</h2>
+
+    <div class="product-grid">
+
+        <div class="product-card">
+            <h4>Cinephile Tees</h4>
+            <p>Iconic quotes and symbolic cinema references.</p>
+        </div>
+
+        <div class="product-card">
+            <h4>Premium Wear</h4>
+            <p>Elevated cinematic streetwear.</p>
+        </div>
+
+        <div class="product-card">
+            <h4>Limited Editions</h4>
+            <p>Collector celebration drops.</p>
+        </div>
+
+        <div class="product-card">
+            <h4>Signature Collection</h4>
+            <p>Flagship designs that define our brand.</p>
+        </div>
+
+        <div class="product-card">
+            <h4>Accessories</h4>
+            <p>Caps, totes, keychains, & more.</p>
+        </div>
+
+        <div class="product-card">
+            <h4>Custom Services</h4>
+            <p>Personalized DTF movie prints.</p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- Join Community -->
+<section class="join-block">
+    <h2>Join the Infinite Cinephile Community</h2>
+    <p>Discover new films, share styles, and wear your passion proudly.</p>
+
+    <div class="join-actions">
+        <a class="btn-primary">Shop Collections</a>
+        <a class="btn-secondary">Get In Touch</a>
+    </div>
+</section>
+
+{% endblock %}

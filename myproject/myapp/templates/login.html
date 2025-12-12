@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sign In - Infinite Cinephile</title>
+<link rel="stylesheet" href="{% static 'signup.css' %}">
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="auth-container">
+
+    <div class="auth-card">
+        <h2>Welcome Back</h2>
+        
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-danger py-1">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        <form method="POST" action="/login">
+            {% csrf_token %}
+
+            <div class="input-group">
+                <i class='bx bx-mail-send'></i>
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+
+            <div class="input-group">
+                <i class='bx bxs-lock-alt'></i>
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <p class="switch-text">
+            Don't have an account?
+            <a href="/register">Create one</a>
+        </p>
+    </div>
+
+</div>
+
+</body>
+</html>

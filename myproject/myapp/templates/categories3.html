@@ -1,0 +1,70 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<link rel="stylesheet" href="{% static 'category.css' %}" />
+
+<!-- Back & Title -->
+<div class="top-nav">
+  <a href="#">← Back to Home</a>
+</div>
+
+<div class="page-header">
+  <h1>🎬 Product Categories</h1>
+  <p>
+    Explore our curated collections of cinema-inspired fashion. From everyday
+    essentials to exclusive collectibles.
+  </p>
+</div>
+
+<div class="category-wrapper">
+  <!-- Sidebar Filters -->
+  <aside class="sidebar">
+    <h3>Filter Products</h3>
+    <p class="smalltext">2 products in Cinephile Tees</p>
+
+    <h4>Categories</h4>
+    <ul>
+      <li>
+        <a href="#">All Categories <span>2</span></a>
+      </li>
+      <li class="active">
+        <a href="#">Cinephile Tees <span>2</span></a>
+      </li>
+      <li><a href="#">Premium Wear</a></li>
+      <li><a href="#">Limited Edition</a></li>
+      <li><a href="#">Accessories</a></li>
+      <li><a href="#">Signature Collection</a></li>
+      <li><a href="#">Special Services</a></li>
+    </ul>
+
+    <button class="clearbtn">Clear All Filters</button>
+  </aside>
+
+  <!-- Product Grid -->
+  <main class="product-section">
+    <div class="prod-toolbar">
+      <input type="text" placeholder="Search products…" />
+    </div>
+
+    <div class="product-grid">
+      <!-- Product 1 -->
+      {% for i in view_product %}
+      <div class="product-card">
+        <div class="badge">Cinephile Tees</div>
+
+        <img src="{{ i.product_img }}" alt="{{ i.product_name }}" />
+
+        <h4>{{ i.product_name }}</h4>
+        <p class="desc">{{ i.product_des }}</p>
+        <p class="price">₹{{ i.product_price }}</p>
+
+        <div class="btn-wrap">
+          <button class="cart">🛒 Add to Cart</button>
+          <button class="details">View Details</button>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </main>
+</div>
+
+{% endblock %}
