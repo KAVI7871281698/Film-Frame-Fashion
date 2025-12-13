@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-6l@4g2_@sg((elxp(myv^n07i^!=$z6icv^!9mxerd=^+!ds)u
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['film-frame-fashion.onrender.com']
+
 
 
 # Application definition
@@ -118,3 +119,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
