@@ -136,3 +136,18 @@
                 margin: auto;
             }
         }
+
+        .order-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 14px 26px;
+            background: #000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            }
+
+            .order-btn:hover {
+            background: #333;
+            }

@@ -1,10 +1,12 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from .models import Register,product,add_to_cart
+from .models import Register,product,add_to_cart,Order
 from django.contrib import messages
+from django.db import transaction
+from django.views.decorators.http import require_POST
 # Create your views here.
 
 def landing(request):
-    return render(request,'landing_base.html')
+    return render(request,'landing_page.html')
 
 def index(request):
     return render(request, 'index.html')
@@ -68,14 +70,15 @@ def categories(request):
     view_product = product.objects.filter(product_Categorie='categorize1')
     return render(request, 'categories.html', {'view_product': view_product})
 
-def cart(request,id):
+
+def cart(request, id):
     email = request.session.get('email')
 
     if not email:
         return redirect('login')
 
-    user = Register.objects.get(email=email)
-    product_obj = product.objects.get(id=id)
+    user = get_object_or_404(Register, email=email)
+    product_obj = get_object_or_404(product, id=id)
 
     cart_item, created = add_to_cart.objects.get_or_create(
         user=user,
@@ -86,7 +89,9 @@ def cart(request,id):
         cart_item.quantity += 1
         cart_item.save()
 
-    return redirect('view_cart')
+    # ✅ stay on same page
+    return redirect(request.META.get('HTTP_REFERER', '/'))
+
 
 def view_cart(request):
     email = request.session.get('email')
@@ -127,7 +132,66 @@ def decrease_quantity(request, id):
         item.delete()
 
     return redirect('view_cart')
+
 def remove_cart_item(request, id):
-    item = get_object_or_404(add_to_cart, id=id, user=request.email)
+    email = request.session.get('email')
+
+    if not email:
+        return redirect('login')
+
+    user = get_object_or_404(Register, email=email)
+
+    item = get_object_or_404(add_to_cart, id=id, user=user)
     item.delete()
+
     return redirect('view_cart')
+
+def order_now_page(request):
+    email = request.session.get('email')
+    if not email:
+        return redirect('login')
+
+    user = Register.objects.get(email=email)
+    cart_items = add_to_cart.objects.filter(user=user)
+
+    if not cart_items.exists():
+        return redirect('view_cart')
+
+    total_amount = sum(item.total_price for item in cart_items)
+
+    return render(request, 'order_now.html', {
+        'cart_items': cart_items,
+        'total_amount': total_amount
+    })
+    
+
+def order_now(request):
+    email = request.session.get('email')
+    if not email:
+        return redirect('login')
+
+    user = Register.objects.get(email=email)
+    cart_items = add_to_cart.objects.filter(user=user)
+
+    if not cart_items.exists():
+        return redirect('view_cart')
+
+    delivery_address = request.POST.get('delivery_address')
+    delivery_date = request.POST.get('delivery_date')
+
+    total_amount = sum(item.total_price for item in cart_items)
+
+    Order.objects.create(
+        user=user,
+        total_amount=total_amount,
+        delivery_address=delivery_address,
+        delivery_date=delivery_date
+    )
+
+    cart_items.delete()
+
+    return redirect('order_success')
+
+def order_success(request):
+    return render(request, 'order_success.html')
+

@@ -40,4 +40,27 @@ class add_to_cart(models.Model):
     def __str__(self):
         return f"{self.add_to_cart_product.product_name} - {self.quantity}"
     
+
+class Order(models.Model):
+    user = models.ForeignKey(Register, on_delete=models.CASCADE)
+    total_amount = models.DecimalField(max_digits=10, decimal_places=2)
+    delivery_address = models.TextField(null=True, blank=True)
+    delivery_date = models.DateField(null=True, blank=True)
+    status = models.CharField(
+        max_length=20,
+        choices=[
+            ('Pending', 'Pending'),
+            ('Confirmed', 'Confirmed'),
+            ('Delivered', 'Delivered'),
+            ('Cancelled', 'Cancelled'),
+        ],
+        default='Pending'
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Order #{self.id} - {self.user.email}"
+
+
+    
     

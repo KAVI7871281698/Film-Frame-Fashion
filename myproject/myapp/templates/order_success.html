@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Successful</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #f7f7f7;
+        }
+
+        .success-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .success-card {
+            background: #fff;
+            padding: 50px 40px;
+            border-radius: 14px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            max-width: 420px;
+            width: 100%;
+        }
+
+        .success-icon {
+            font-size: 60px;
+            color: #28a745;
+            margin-bottom: 15px;
+        }
+
+        .success-card h1 {
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+
+        .success-card p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .success-actions a {
+            display: inline-block;
+            padding: 12px 26px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            margin: 0 6px;
+        }
+
+        .btn-home {
+            background: #000;
+            color: #fff;
+        }
+
+        .btn-cart {
+            border: 1px solid #ccc;
+            color: #333;
+        }
+
+        .btn-home:hover {
+            background: #333;
+        }
+
+        .btn-cart:hover {
+            background: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="success-container">
+    <div class="success-card">
+        <div class="success-icon">✅</div>
+
+        <h1>Order Placed Successfully!</h1>
+        <p>
+            Thank you for your order.  
+            Your items will be delivered as per the selected date.
+        </p>
+
+        <div class="success-actions">
+            <a href="{% url 'index' %}" class="btn-home">🏠 Go to Home</a>
+            <a href="{% url 'view_cart' %}" class="btn-cart">🛒 View Cart</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

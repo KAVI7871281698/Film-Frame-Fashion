@@ -1,0 +1,60 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'order_now.css' %}">
+
+<div class="checkout-container">
+
+  <div class="checkout-header">
+    <h1>🧾 Order Summary</h1>
+    <p>Review your items before placing the order</p>
+  </div>
+
+  <!-- CART ITEMS -->
+  <div class="checkout-card">
+    <table class="checkout-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Qty</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in cart_items %}
+        <tr>
+          <td class="product-info">
+            <img src="{{ item.add_to_cart_product.product_img.url }}">
+            <span>{{ item.add_to_cart_product.product_name }}</span>
+          </td>
+          <td>₹{{ item.add_to_cart_product.product_price }}</td>
+          <td>{{ item.quantity }}</td>
+          <td><strong>₹{{ item.total_price }}</strong></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- DELIVERY FORM -->
+  <form method="POST" action="{% url 'order_now' %}" class="checkout-footer">
+    {% csrf_token %}
+
+    <div class="delivery-box">
+      <label>📍 Delivery Address</label>
+      <textarea name="delivery_address" required></textarea>
+
+      <label>📅 Delivery Date</label>
+      <input type="date" name="delivery_date" required>
+    </div>
+
+    <div class="total-box">
+      <h3>Total Amount</h3>
+      <h2>₹{{ total_amount }}</h2>
+
+      <button type="submit" class="order-btn">
+        ✅ Place Order
+      </button>
+    </div>
+  </form>
+
+</div>
