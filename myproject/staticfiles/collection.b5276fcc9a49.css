@@ -1,0 +1,138 @@
+/* ===== Base ===== */
+*:where(*) {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Poppins, sans-serif;
+}
+
+.back-link {
+    margin: 15px 5%;
+}
+.back-link a {
+    font-size: 14px;
+    color: #777;
+}
+
+.page-title {
+    text-align: center;
+    margin-top: 20px;
+}
+.page-title h1 {
+    font-size: 28px;
+}
+.page-title p {
+    color: #777;
+    margin-top: 6px;
+    line-height: 1.5;
+}
+
+/* Section Title */
+.section-heading {
+    font-weight: 600;
+    margin: 30px 5% 15px 5%;
+    font-size: 18px;
+}
+
+/* Card Layout */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+    padding: 0 5%;
+}
+
+/* Card */
+.collection-card {
+    border-radius: 10px;
+    border: 1px solid #eee;
+    overflow: hidden;
+    background: white;
+}
+
+.collection-card .top {
+    padding: 15px;
+    color: white;
+}
+.collection-card .top span {
+    font-size: 20px;
+}
+
+.collection-card h3 {
+    font-size: 15px;
+    margin-top: 4px;
+}
+.collection-card .body {
+    padding: 12px 15px;
+    font-size: 13px;
+    color: #555;
+}
+.collection-card .body .badge {
+    background: #eee;
+    font-size: 11px;
+    padding: 3px 5px;
+    display: inline-block;
+    margin-bottom: 6px;
+}
+
+/* Link */
+.collection-card a {
+    color: #0A6AFF;
+    font-size: 12px;
+}
+
+/* Colors Matching UI */
+.gold      .top { background: #b98b00; }
+.purple    .top { background: #913b86; }
+.darkblue  .top { background: #334f61; }
+.red       .top { background: #a34646; }
+.teal      .top { background: #2f8298; }
+.green     .top { background: #227a42; }
+
+/* CTA Section */
+.cta-box {
+    background: #fbeaea;
+    margin: 40px 5%;
+    padding: 25px;
+    text-align: center;
+    border-radius: 10px;
+}
+.cta-box h3 {
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+.cta-box p {
+    color: #777;
+    font-size: 13px;
+}
+
+.cta-btns {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.cta-btns button {
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+}
+.cta-btns .primary {
+    background: red;
+    color: white;
+}
+.cta-btns .outline {
+    background: white;
+    color: #555;
+    border: 1px solid #ddd;
+}
+
+/* Responsive */
+@media(max-width: 600px) {
+    .collection-card .top {
+        padding: 10px;
+    }
+}
