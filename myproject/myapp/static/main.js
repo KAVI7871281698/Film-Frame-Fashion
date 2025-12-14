@@ -1,25 +1,40 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Sticky Header
-    window.addEventListener("scroll", () => {
-        document.querySelector(".header").classList.toggle("fixed", window.scrollY > 80);
-    });
+    /* ================= STICKY HEADER ================= */
+    const header = document.querySelector(".header");
 
-    // Toggle Mobile Menu
-    window.toggleMenu = () => {
-        document.querySelector(".navbar").classList.toggle("active");
-    };
-
-    // Dot Slider Animation
-    let index = 0;
-    let dots = document.querySelectorAll(".dot");
-
-    function updateDots() {
-        dots.forEach((d, i) => d.classList.toggle("active", i === index));
+    if (header) {
+        window.addEventListener("scroll", () => {
+            header.classList.toggle("fixed", window.scrollY > 80);
+        });
     }
 
-    setInterval(() => {
-        index = (index + 1) % dots.length;
+    /* ================= MOBILE MENU TOGGLE ================= */
+    window.toggleMenu = () => {
+        const navbar = document.querySelector(".navbar");
+        if (navbar) {
+            navbar.classList.toggle("active");
+        }
+    };
+
+    /* ================= DOT SLIDER (SAFE) ================= */
+    let dots = document.querySelectorAll(".dot");
+
+    if (dots.length > 0) {
+        let index = 0;
+
+        const updateDots = () => {
+            dots.forEach((dot, i) => {
+                dot.classList.toggle("active", i === index);
+            });
+        };
+
         updateDots();
-    }, 2000);
+
+        setInterval(() => {
+            index = (index + 1) % dots.length;
+            updateDots();
+        }, 2000);
+    }
+
 });

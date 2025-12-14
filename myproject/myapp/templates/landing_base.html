@@ -5,57 +5,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Film. Frame. Fashion.</title>
+
     <link rel="stylesheet" href="{% static 'index.css' %}">
-    <link rel="stylesheet" href="{% static 'categories.css' %}">
 </head>
 
 <body>
 
-<!-- Header -->
+<!-- HEADER -->
 <header class="header">
     <div class="logo">
-        <img src="{% static 'img/company_logo.png' %}" alt="Infinite Cinephile Logo">
+        <img src="{% static 'img/company_logo.png' %}" alt="Infinite Cinephile">
     </div>
 
     <nav class="navbar">
-        <a href="/login">Home</a>
-        <a href="/login">Categories</a>
-        <a href="/login">Collections</a>
-        <a href="/login">Track Order</a>
-        <a href="/login">About</a>
-        <a href="/login">Contact</a>
+        <a href="/">Home</a>
+        <a href="/categories">Categories</a>
+        <a href="/collections">Collections</a>
+        <a href="/track-order">Track Order</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
     </nav>
 
     <div class="auth">
         <input type="text" placeholder="Search products...">
-        <a href="/login"><button>Sign In</button></a>
-        <a href="/register"><button class="register">Register</button></a>
-        <span>🛒</span>
 
-        <!-- Mobile Toggle -->
+        <a href="/login">
+            <button class="login-btn">Sign In</button>
+        </a>
+
+        <a href="/register">
+            <button class="register">Register</button>
+        </a>
+
+        <span class="cart">🛒</span>
+
         <div class="menu-icon" onclick="toggleMenu()">☰</div>
     </div>
 </header>
 
-<!-- Page Content -->
+<!-- PAGE CONTENT -->
 {% block content %}{% endblock %}
 
-<!-- Footer Include -->
-{% include 'footer.html' %}
+{% include "footer.html" %}
 
-<!-- JS -->
-<script>
-    // Sticky Navbar
-    window.addEventListener("scroll", function () {
-        const header = document.querySelector(".header");
-        header.classList.toggle("fixed", window.scrollY > 80);
-    });
-
-    // Mobile Menu Toggle
-    function toggleMenu(){
-        document.querySelector(".navbar").classList.toggle("active");
-    }
-</script>
-
+<script src="{% static 'main.js' %}"></script>
 </body>
 </html>

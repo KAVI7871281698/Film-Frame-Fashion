@@ -2,10 +2,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Register - Infinite Cinephile</title>
-<link rel="stylesheet" href="{% static 'signup.css' %}">
-<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Register - Infinite Cinephile</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'signup.css' %}">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+    <!-- Mobile viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
@@ -17,10 +22,10 @@
 
         {% if messages %}
             {% for message in messages %}
-                <div class="alert alert-warning py-1">{{ message }}</div>
+                <div class="alert">{{ message }}</div>
             {% endfor %}
         {% endif %}
-        
+
         <form method="POST" action="/register">
             {% csrf_token %}
 
@@ -36,7 +41,7 @@
 
             <div class="input-group">
                 <i class='bx bx-phone-call'></i>
-                <input type="number" name="phone" placeholder="Phone" required>
+                <input type="tel" name="phone" placeholder="Phone" pattern="[0-9]{10}" required>
             </div>
 
             <div class="input-group">

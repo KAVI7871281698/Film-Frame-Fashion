@@ -1,30 +1,48 @@
 {% extends 'landing_base.html' %}
 {% load static %}
+
 {% block content %}
-<!-- Banner Space -->
+
+<!-- BANNER -->
 <section class="banner-video">
     <video autoplay muted loop playsinline>
         <source src="{% static 'video/banner_video.mp4' %}" type="video/mp4">
-        Your browser does not support video playback.
     </video>
 </section>
 
-
-<!-- Hero Section -->
+<!-- HERO -->
 <section class="hero">
-    <h1><span>Film.</span> <span>Frame.</span> <span class="highlight">Fashion.</span></h1>
-    <p>Where cinema culture meets premium streetwear. Discover our exclusive collection of cinema-inspired apparel and accessories for true cinephiles.</p>
+    <h1>
+        <span>Film.</span>
+        <span>Frame.</span>
+        <span class="highlight">Fashion.</span>
+    </h1>
+
+    <p>
+        Where cinema culture meets premium streetwear.
+        Discover cinema-inspired apparel for true cinephiles.
+    </p>
+
     <div class="hero-btns">
         <button class="shop">Shop Collection →</button>
         <button class="story">Our Story</button>
     </div>
 </section>
 
-<!-- Stats -->
+<!-- STATS -->
 <section class="stats">
-    <div><strong>50+</strong><p>Unique Designs</p></div>
-    <div><strong>Premium</strong><p>Quality Materials</p></div>
-    <div><strong>100%</strong><p>Cinema Inspired</p></div>
+    <div>
+        <strong>50+</strong>
+        <p>Unique Designs</p>
+    </div>
+    <div>
+        <strong>Premium</strong>
+        <p>Quality Materials</p>
+    </div>
+    <div>
+        <strong>100%</strong>
+        <p>Cinema Inspired</p>
+    </div>
 </section>
 
 {% endblock %}

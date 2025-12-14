@@ -6,51 +6,51 @@
     --gray-2: #757575;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Poppins, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 html, body {
-    height: 100vh;
+    height: 100%;
 }
 
+/* ================= CONTAINER ================= */
 .auth-container {
     position: relative;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
 }
 
-/* animated background curve */
+/* Animated background */
 .auth-container::before {
     content: "";
     position: absolute;
-    top: 0;
-    right: 0;
-    height: 100vh;
+    inset: 0;
     width: 300vw;
-    transform: translate(35%, 0);
-    background-image: linear-gradient(-45deg, var(--primary), var(--secondary));
-    box-shadow: rgba(0,0,0,0.35) 0 5px 15px;
+    height: 100vh;
+    background: linear-gradient(-45deg, var(--primary), var(--secondary));
+    transform: translateX(35%);
     border-bottom-right-radius: max(60vw, 50vh);
     border-top-left-radius: max(60vw, 50vh);
     animation: bgslide 1s ease-in-out forwards;
+    box-shadow: rgba(0,0,0,0.35) 0 5px 15px;
 }
 
 @keyframes bgslide {
-    from { transform: translate(100%, 0); }
-    to   { transform: translate(35%, 0); }
+    from { transform: translateX(100%); }
+    to   { transform: translateX(35%); }
 }
 
-/* Form Card */
+/* ================= CARD ================= */
 .auth-card {
     z-index: 10;
     width: 90%;
@@ -64,21 +64,40 @@ html, body {
 }
 
 @keyframes fadeUp {
-    from { transform: scale(0.5); opacity: 0; }
+    from { transform: scale(0.85); opacity: 0; }
     to   { transform: scale(1); opacity: 1; }
 }
 
-/* Title */
+/* ================= TITLE ================= */
 .auth-card h2 {
     font-size: 30px;
-    margin-bottom: 15px;
     font-weight: 700;
+    margin-bottom: 18px;
 }
 
-/* input styling */
+/* ================= ALERT ================= */
+.alert {
+    background: #ffe3e3;
+    color: #b30000;
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+/* ================= INPUT ================= */
 .input-group {
     position: relative;
-    margin-bottom: 15px;
+    margin-bottom: 14px;
+}
+
+.input-group i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: var(--gray-2);
 }
 
 .input-group input {
@@ -91,16 +110,7 @@ html, body {
     font-size: 15px;
 }
 
-.input-group i {
-    position: absolute;
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 18px;
-    color: var(--gray-2);
-}
-
-/* button */
+/* ================= BUTTON ================= */
 button {
     width: 100%;
     padding: 12px;
@@ -108,8 +118,8 @@ button {
     color: var(--white);
     font-size: 16px;
     border-radius: 8px;
-    cursor: pointer;
     border: none;
+    cursor: pointer;
     margin-top: 8px;
 }
 
@@ -117,7 +127,7 @@ button:hover {
     background: #3b8b6f;
 }
 
-/* bottom text */
+/* ================= BOTTOM TEXT ================= */
 .switch-text {
     margin-top: 12px;
     font-size: 14px;
@@ -126,4 +136,53 @@ button:hover {
 .switch-text a {
     color: var(--primary);
     font-weight: 600;
+    text-decoration: none;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Mobile */
+@media (max-width: 576px) {
+    .auth-container::before {
+        transform: translateX(45%);
+        border-radius: 0;
+    }
+
+    .auth-card {
+        padding: 24px 18px;
+        border-radius: 16px;
+    }
+
+    .auth-card h2 {
+        font-size: 24px;
+    }
+
+    .input-group input {
+        font-size: 14px;
+    }
+}
+
+/* Tablet */
+@media (min-width: 577px) and (max-width: 768px) {
+    .auth-card {
+        max-width: 400px;
+    }
+
+    .auth-card h2 {
+        font-size: 26px;
+    }
+}
+
+/* Laptop */
+@media (min-width: 769px) and (max-width: 1200px) {
+    .auth-card {
+        max-width: 420px;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1201px) {
+    .auth-card {
+        max-width: 460px;
+    }
 }
