@@ -2,7 +2,225 @@
 {% load static %}
 {% block content %}
 
-<link rel="stylesheet" href="{% static 'contact.css' %}" />
+<style>
+/* ================= THEME ================= */
+:root {
+    --bg-black: #000;
+    --dark-black: #0b0b0b;
+    --gold: #d4af37;
+    --fire-red: #e50914;
+    --soft-gray: #9a9a9a;
+    --border-gold: rgba(212,175,55,0.4);
+}
+
+/* ================= GLOBAL ================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Poppins, sans-serif;
+}
+
+/* ================= BACK LINK ================= */
+.back-link {
+    margin: 20px 5%;
+}
+.back-link a {
+    color: var(--soft-gray);
+    font-size: 14px;
+    text-decoration: none;
+}
+.back-link a:hover {
+    color: var(--fire-red);
+}
+
+/* ================= HERO ================= */
+.contact-hero {
+    text-align: center;
+    padding: 20px 5%;
+    margin-bottom: 25px;
+}
+.contact-hero h1 {
+    font-size: 36px;
+    color: var(--gold);
+}
+.contact-hero p {
+    max-width: 650px;
+    margin: 10px auto 0;
+    color: var(--soft-gray);
+    font-size: 15px;
+}
+
+/* ================= LAYOUT ================= */
+.contact-layout {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    gap: 25px;
+    padding: 0 5%;
+}
+
+/* ================= SIDEBAR ================= */
+.contact-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* ================= CARD ================= */
+.card {
+    background: var(--dark-black);
+    padding: 18px;
+    border-radius: 14px;
+    border: 1px solid var(--border-gold);
+    box-shadow: 0 0 18px rgba(212,175,55,0.15);
+}
+.card h3 {
+    color: var(--fire-red);
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+.card p,
+.card li {
+    font-size: 14px;
+    color: var(--soft-gray);
+    margin-bottom: 6px;
+}
+.card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* ================= SOCIAL ICONS ================= */
+.social-icons {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+.social-icons a {
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+.social-icons a:hover {
+    transform: scale(1.15);
+}
+
+.icon-instagram { background-image: url('https://cdn-icons-png.flaticon.com/512/2111/2111463.png'); }
+.icon-facebook  { background-image: url('https://cdn-icons-png.flaticon.com/512/733/733547.png'); }
+.icon-twitter   { background-image: url('https://cdn-icons-png.flaticon.com/512/733/733579.png'); }
+.icon-youtube   { background-image: url('https://cdn-icons-png.flaticon.com/512/1384/1384060.png'); }
+
+/* ================= MAIN ================= */
+.contact-main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ================= FORM ================= */
+.form-card,
+.faq-card {
+    background: var(--dark-black);
+    padding: 22px;
+    border-radius: 16px;
+    border: 1px solid var(--border-gold);
+}
+.form-card h3,
+.faq-card h3 {
+    color: var(--fire-red);
+    margin-bottom: 10px;
+}
+.form-card p {
+    color: var(--soft-gray);
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+.form-row {
+    display: flex;
+    gap: 12px;
+}
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    background: #000;
+    border: 1px solid var(--border-gold);
+    border-radius: 6px;
+    color: var(--gold);
+    margin-bottom: 12px;
+}
+textarea {
+    height: 130px;
+}
+.send-btn {
+    background: var(--fire-red);
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.send-btn:hover {
+    background: #b20710;
+}
+
+/* ================= FAQ ================= */
+.faq-card p {
+    font-size: 14px;
+    color: var(--soft-gray);
+    margin-bottom: 10px;
+}
+
+/* ================= URGENT HELP ================= */
+.urgent-help {
+    margin: 40px 5%;
+    padding: 40px;
+    text-align: center;
+    background: linear-gradient(135deg, #120000, #2a0000);
+    border-radius: 16px;
+    border: 1px solid var(--border-gold);
+}
+.urgent-help h2 {
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+.urgent-help p {
+    color: var(--soft-gray);
+}
+.urgent-btns {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+.email-support {
+    background: var(--fire-red);
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 6px;
+    border: none;
+}
+.call-support {
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 10px 16px;
+    border-radius: 6px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width: 991px) {
+    .contact-layout {
+        grid-template-columns: 1fr;
+    }
+    .form-row {
+        flex-direction: column;
+    }
+}
+</style>
 
 <section class="back-link">
     <a href="javascript:history.back()">← Back to Home</a>
@@ -18,73 +236,71 @@
 
 <div class="contact-layout">
 
-    <!-- LEFT SIDEBAR -->
+    <!-- LEFT -->
     <aside class="contact-sidebar">
 
         <div class="card">
             <h3>📩 Get In Touch</h3>
             <p><strong>Email</strong><br>hello@infinitecinephile.com</p>
             <p><strong>Phone</strong><br>+91 12345 67890</p>
-            <p>
-                <strong>Address</strong><br>
+            <p><strong>Address</strong><br>
                 Film District, Cinema Street,<br>
-                Mumbai, Maharashtra 400001, India
+                Mumbai, Maharashtra 400001
             </p>
         </div>
 
         <div class="card">
             <h3>🕒 Business Hours</h3>
-            <p>Monday - Friday: 10:00 AM - 7:00 PM</p>
-            <p>Saturday: 11:00 AM - 6:00 PM</p>
+            <p>Mon – Fri: 10:00 AM – 7:00 PM</p>
+            <p>Saturday: 11:00 AM – 6:00 PM</p>
             <p>Sunday: Closed</p>
         </div>
 
         <div class="card">
-            <h3>📌 Support Categories</h3>
+            <h3>📌 Support</h3>
             <ul>
                 <li>Order Support</li>
-                <li>Shipping & Delivery</li>
-                <li>Returns & Exchanges</li>
-                <li>General Inquiries</li>
+                <li>Shipping</li>
+                <li>Returns</li>
+                <li>General Queries</li>
             </ul>
         </div>
 
         <div class="card">
             <h3>📱 Follow Us</h3>
             <div class="social-icons">
-                <a href="#" class="icon-instagram" aria-label="Instagram"></a>
-                <a href="#" class="icon-facebook" aria-label="Facebook"></a>
-                <a href="#" class="icon-twitter" aria-label="Twitter"></a>
-                <a href="#" class="icon-youtube" aria-label="YouTube"></a>
+                <a class="icon-instagram"></a>
+                <a class="icon-facebook"></a>
+                <a class="icon-twitter"></a>
+                <a class="icon-youtube"></a>
             </div>
         </div>
 
     </aside>
 
-
-    <!-- RIGHT CONTENT AREA -->
+    <!-- RIGHT -->
     <main class="contact-main">
 
         <div class="form-card">
             <h3>✉ Send Us a Message</h3>
-            <p>Fill out the form below and we’ll get back to you as soon as possible.</p>
+            <p>We’ll respond within 24 hours.</p>
 
             <form>
                 <div class="form-row">
-                    <input type="text" placeholder="Full Name *" />
-                    <input type="email" placeholder="Email Address *" />
+                    <input type="text" placeholder="Full Name *">
+                    <input type="email" placeholder="Email Address *">
                 </div>
 
                 <select>
-                    <option>Select a category...</option>
+                    <option>Select a category</option>
                     <option>Order Issue</option>
                     <option>Shipping Delay</option>
-                    <option>Returns / Exchange</option>
+                    <option>Returns</option>
                     <option>Product Inquiry</option>
                 </select>
 
-                <input type="text" placeholder="Brief subject line" />
-                <textarea placeholder="Tell us how we can help you..."></textarea>
+                <input type="text" placeholder="Subject">
+                <textarea placeholder="Your message"></textarea>
 
                 <button class="send-btn">📨 Send Message</button>
             </form>
@@ -92,27 +308,18 @@
 
         <div class="faq-card">
             <h3>Frequently Asked Questions</h3>
-
-            <p><strong>How long does shipping take?</strong><br>Standard shipping takes 3-7 business days within India. Express options available.</p>
-
-            <p><strong>Can I return or exchange items?</strong><br>Yes! We allow 30-day returns for size exchanges. Items must be unworn with tags.</p>
-
-            <p><strong>Do you offer custom designs?</strong><br>Yes — check out our Custom Services for DTF-based design printing.</p>
-
-            <p><strong>How can I track my order?</strong><br>You’ll receive tracking details via email after purchase.</p>
+            <p><strong>Shipping time?</strong><br>3–7 business days within India.</p>
+            <p><strong>Return policy?</strong><br>30-day exchange available.</p>
+            <p><strong>Custom designs?</strong><br>Yes, via Custom Services.</p>
         </div>
 
     </main>
 
 </div>
 
-
-<!-- URGENT HELP BLOCK -->
 <section class="urgent-help">
     <h2>Need Immediate Help?</h2>
-    <p>
-        For urgent order issues or time-sensitive inquiries, reach out to us directly.
-    </p>
+    <p>For urgent order issues, contact us directly.</p>
 
     <div class="urgent-btns">
         <button class="email-support">📧 Email Support</button>

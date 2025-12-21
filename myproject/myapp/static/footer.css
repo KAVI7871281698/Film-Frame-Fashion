@@ -1,15 +1,33 @@
-/* Footer */
-.footer {
-    background: #fafafa;
-    padding: 40px 5%;
+/* ================= THEME COLORS ================= */
+:root {
+    --black-bg: #050505;
+    --gold: #d4af37;
+    --fire-red: #e50914;
+    --soft-gray: #aaaaaa;
 }
 
-/* Left side area */
+/* ================= FOOTER ================= */
+.footer {
+    background: var(--black-bg);
+    padding: 40px 5%;
+    color: var(--gold);
+    border-top: 1px solid #222;
+}
+
+/* ================= LEFT AREA ================= */
 .footer-left {
     max-width: 40%;
     margin-bottom: 25px;
 }
 
+.footer-left p {
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--soft-gray);
+}
+
+/* Footer Logo */
 .footer-logo {
     width: 70px;
     height: 70px;
@@ -17,98 +35,128 @@
     background: black;
     padding: 6px;
     object-fit: cover;
-    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    box-shadow: 0 0 15px rgba(229, 9, 20, 0.7);
 }
 
-/* Social icons */
+/* ================= SOCIAL ICONS ================= */
 .footer-social {
-    margin-top: 12px;
+    margin-top: 15px;
     display: flex;
     gap: 15px;
 }
 
 .footer-social a {
-    color: #333;
+    color: var(--gold);
     font-size: 18px;
     transition: 0.3s;
 }
+
 .footer-social a:hover {
-    color: red;
+    color: var(--fire-red);
+    transform: scale(1.15);
 }
 
-/* Link area */
+/* ================= LINKS ================= */
 .footer-links {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 40px;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 .link-box h4 {
     margin-bottom: 12px;
     font-size: 16px;
     font-weight: 600;
+    color: var(--fire-red);
 }
 
 .link-box a {
     display: block;
-    color: #555;
+    color: var(--gold);
     font-size: 14px;
     margin-bottom: 6px;
     text-decoration: none;
-}
-.link-box a:hover {
-    color: red;
+    transition: 0.3s;
 }
 
-/* Email input */
+.link-box a:hover {
+    color: var(--fire-red);
+    padding-left: 5px;
+}
+
+/* ================= SUBSCRIBE ================= */
+.link-box p {
+    font-size: 13px;
+    color: var(--soft-gray);
+    margin-bottom: 8px;
+}
+
 .link-box input {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #333;
     border-radius: 6px;
-    margin-top: 10px;
+    margin-top: 6px;
     font-size: 14px;
     outline: none;
+    background: #000;
+    color: var(--gold);
 }
 
+.link-box input::placeholder {
+    color: #777;
+}
+
+/* Subscribe Button */
 .subscribe-btn {
     width: 100%;
     margin-top: 10px;
     padding: 10px;
-    background: red;
-    color: white;
+    background: var(--fire-red);
+    color: #fff;
     border: none;
     border-radius: 6px;
     font-size: 15px;
     cursor: pointer;
-}
-.subscribe-btn:hover {
-    background: rgb(200, 0, 0);
+    transition: 0.3s;
 }
 
-/* Bottom */
+.subscribe-btn:hover {
+    background: #b20710;
+    box-shadow: 0 0 12px rgba(229, 9, 20, 0.7);
+}
+
+/* ================= FOOTER BOTTOM ================= */
 .footer-bottom {
     text-align: center;
     font-size: 13px;
     padding-top: 15px;
-    margin-top: 25px;
-    border-top: 1px solid #eee;
+    margin-top: 30px;
+    border-top: 1px solid #222;
+    color: #888;
 }
 
+/* ================= RESPONSIVE ================= */
 @media (max-width: 991px) {
     .footer-left {
         max-width: 100%;
     }
-    
+
     .footer-links {
         flex-direction: column;
         gap: 25px;
     }
 }
+
 @media (max-width: 480px) {
     .footer-social {
         justify-content: center;
+    }
+
+    .footer-left,
+    .footer-links {
+        text-align: center;
     }
 }

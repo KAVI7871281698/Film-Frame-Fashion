@@ -1,40 +1,66 @@
-/* ===== Base ===== */
-*:where(*) {
+/* ================= THEME ================= */
+:root {
+    --bg-black: #000000;
+    --dark-black: #0b0b0b;
+    --gold: #d4af37;
+    --fire-red: #e50914;
+    --soft-gray: #9a9a9a;
+}
+
+/* ================= BASE ================= */
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Poppins, sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
+body {
+    background: var(--bg-black);
+    color: var(--gold);
+}
+
+/* ================= BACK LINK ================= */
 .back-link {
     margin: 15px 5%;
 }
+
 .back-link a {
     font-size: 14px;
-    color: #777;
+    color: var(--soft-gray);
+    text-decoration: none;
 }
 
+.back-link a:hover {
+    color: var(--fire-red);
+}
+
+/* ================= PAGE TITLE ================= */
 .page-title {
     text-align: center;
     margin-top: 20px;
 }
+
 .page-title h1 {
     font-size: 28px;
-}
-.page-title p {
-    color: #777;
-    margin-top: 6px;
-    line-height: 1.5;
+    color: var(--gold);
 }
 
-/* Section Title */
+.page-title p {
+    color: var(--soft-gray);
+    margin-top: 6px;
+    line-height: 1.6;
+}
+
+/* ================= SECTION HEADING ================= */
 .section-heading {
     font-weight: 600;
     margin: 30px 5% 15px 5%;
     font-size: 18px;
+    color: var(--fire-red);
 }
 
-/* Card Layout */
+/* ================= CARD GRID ================= */
 .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -42,97 +68,161 @@
     padding: 0 5%;
 }
 
-/* Card */
+/* ================= COLLECTION CARD ================= */
 .collection-card {
-    border-radius: 10px;
-    border: 1px solid #eee;
+    position: relative;
+    border-radius: 14px;
+    background: var(--dark-black);
     overflow: hidden;
-    background: white;
+    transition: 0.35s ease;
+    border: 1px solid rgba(212, 175, 55, 0.35); /* GOLD TRANSPARENT */
+    box-shadow:
+        0 0 0 1px rgba(229, 9, 20, 0.15),      /* FIRE RED thin */
+        0 0 18px rgba(212, 175, 55, 0.12);     /* GOLD glow */
 }
 
-.collection-card .top {
-    padding: 15px;
-    color: white;
+.collection-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(229, 9, 20, 0.65);
+    box-shadow:
+        0 0 0 1px rgba(229, 9, 20, 0.7),
+        0 0 25px rgba(229, 9, 20, 0.45),
+        0 0 45px rgba(212, 175, 55, 0.25);
 }
+
+/* ================= CARD TOP ================= */
+.collection-card .top {
+    padding: 16px;
+    color: #fff;
+}
+
 .collection-card .top span {
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .collection-card h3 {
     font-size: 15px;
-    margin-top: 4px;
+    margin-top: 6px;
+    color: var(--gold);
 }
-.collection-card .body {
-    padding: 12px 15px;
+
+.collection-card .top p {
     font-size: 13px;
-    color: #555;
+    color: #eee;
 }
-.collection-card .body .badge {
-    background: #eee;
+
+/* ================= CARD BODY ================= */
+.collection-card .body {
+    padding: 14px 16px;
+    font-size: 13px;
+    color: var(--soft-gray);
+}
+
+.collection-card .body p {
+    line-height: 1.5;
+}
+
+/* ================= BADGE ================= */
+.collection-card .badge {
+    background: rgba(229, 9, 20, 0.15);
+    color: var(--fire-red);
     font-size: 11px;
-    padding: 3px 5px;
+    padding: 4px 8px;
     display: inline-block;
     margin-bottom: 6px;
+    border-radius: 12px;
+    border: 1px solid rgba(229, 9, 20, 0.5);
 }
 
-/* Link */
+/* ================= LINKS ================= */
 .collection-card a {
-    color: #0A6AFF;
+    display: inline-block;
+    margin-top: 6px;
+    color: var(--fire-red);
     font-size: 12px;
+    text-decoration: none;
 }
 
-/* Colors Matching UI */
-.gold      .top { background: #b98b00; }
-.purple    .top { background: #913b86; }
-.darkblue  .top { background: #334f61; }
-.red       .top { background: #a34646; }
-.teal      .top { background: #2f8298; }
-.green     .top { background: #227a42; }
+.collection-card a:hover {
+    text-decoration: underline;
+}
 
-/* CTA Section */
+/* ================= COLOR VARIANTS ================= */
+.gold      .top { background: linear-gradient(135deg, #5a4300, var(--gold)); }
+.purple    .top { background: linear-gradient(135deg, #3d1639, #913b86); }
+.darkblue  .top { background: linear-gradient(135deg, #142733, #334f61); }
+.red       .top { background: linear-gradient(135deg, #3a0d0d, var(--fire-red)); }
+.teal      .top { background: linear-gradient(135deg, #12343d, #2f8298); }
+.green     .top { background: linear-gradient(135deg, #0e2b1a, #227a42); }
+
+/* ================= CTA SECTION ================= */
 .cta-box {
-    background: #fbeaea;
+    background: linear-gradient(135deg, #120000, #2a0000);
     margin: 40px 5%;
     padding: 25px;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 16px;
+    border: 1px solid rgba(212, 175, 55, 0.45);
+    box-shadow:
+        0 0 20px rgba(229, 9, 20, 0.25),
+        inset 0 0 25px rgba(212, 175, 55, 0.15);
 }
+
 .cta-box h3 {
     font-size: 18px;
     margin-bottom: 6px;
+    color: var(--gold);
 }
+
 .cta-box p {
-    color: #777;
+    color: var(--soft-gray);
     font-size: 13px;
 }
 
+/* ================= CTA BUTTONS ================= */
 .cta-btns {
     margin-top: 15px;
     display: flex;
     justify-content: center;
     gap: 12px;
+    flex-wrap: wrap;
 }
 
 .cta-btns button {
-    padding: 8px 14px;
+    padding: 9px 16px;
     border-radius: 6px;
     border: none;
     cursor: pointer;
     font-size: 13px;
 }
+
+/* Primary */
 .cta-btns .primary {
-    background: red;
+    background: var(--fire-red);
     color: white;
-}
-.cta-btns .outline {
-    background: white;
-    color: #555;
-    border: 1px solid #ddd;
+    box-shadow: 0 0 12px rgba(229, 9, 20, 0.6);
 }
 
-/* Responsive */
-@media(max-width: 600px) {
+.cta-btns .primary:hover {
+    background: #b20710;
+    box-shadow: 0 0 20px rgba(229, 9, 20, 0.9);
+}
+
+/* Outline */
+.cta-btns .outline {
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid rgba(212, 175, 55, 0.8);
+}
+
+.cta-btns .outline:hover {
+    background: var(--gold);
+    color: #000;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 600px) {
     .collection-card .top {
-        padding: 10px;
+        padding: 12px;
     }
 }

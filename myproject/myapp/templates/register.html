@@ -5,12 +5,194 @@
     <meta charset="UTF-8">
     <title>Register - Infinite Cinephile</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="{% static 'signup.css' %}">
+    <!-- Icons -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
     <!-- Mobile viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ================= INTERNAL CSS ================= -->
+    <style>
+        :root {
+            --bg-black: #000000;
+            --dark-black: #0b0b0b;
+            --gold: #d4af37;
+            --fire-red: #e50914;
+            --gray: #1a1a1a;
+            --gray-2: #888888;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html, body {
+            height: 100%;
+            background: var(--bg-black);
+            color: var(--gold);
+        }
+
+        /* ================= CONTAINER ================= */
+        .auth-container {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Cinematic animated background */
+        .auth-container::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            width: 300vw;
+            height: 100vh;
+            background: linear-gradient(-45deg, #200000, var(--fire-red), #200000);
+            transform: translateX(35%);
+            border-bottom-right-radius: max(60vw, 50vh);
+            border-top-left-radius: max(60vw, 50vh);
+            animation: bgslide 1s ease-in-out forwards;
+            box-shadow: rgba(229, 9, 20, 0.35) 0 5px 30px;
+        }
+
+        @keyframes bgslide {
+            from { transform: translateX(100%); }
+            to   { transform: translateX(35%); }
+        }
+
+        /* ================= CARD ================= */
+        .auth-card {
+            z-index: 10;
+            width: 90%;
+            max-width: 420px;
+            background: var(--dark-black);
+            padding: 30px 25px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid #222;
+            box-shadow: 0 0 30px rgba(0,0,0,0.85);
+            animation: fadeUp 0.8s ease-in-out;
+        }
+
+        @keyframes fadeUp {
+            from { transform: scale(0.85); opacity: 0; }
+            to   { transform: scale(1); opacity: 1; }
+        }
+
+        /* ================= TITLE ================= */
+        .auth-card h2 {
+            font-size: 30px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            color: var(--gold);
+        }
+
+        /* ================= ALERT ================= */
+        .alert {
+            background: #2a0000;
+            color: var(--fire-red);
+            padding: 8px;
+            border-radius: 6px;
+            font-size: 14px;
+            margin-bottom: 12px;
+            border: 1px solid #400000;
+        }
+
+        /* ================= INPUT ================= */
+        .input-group {
+            position: relative;
+            margin-bottom: 14px;
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: var(--gold);
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 40px;
+            background: var(--gray);
+            border-radius: 8px;
+            border: 1px solid #222;
+            outline: none;
+            font-size: 15px;
+            color: var(--gold);
+        }
+
+        .input-group input::placeholder {
+            color: var(--gray-2);
+        }
+
+        .input-group input:focus {
+            border-color: var(--fire-red);
+            box-shadow: 0 0 8px rgba(229, 9, 20, 0.6);
+        }
+
+        /* ================= BUTTON ================= */
+        button {
+            width: 100%;
+            padding: 12px;
+            background: var(--fire-red);
+            color: var(--white);
+            font-size: 16px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #b20710;
+            box-shadow: 0 0 15px rgba(229, 9, 20, 0.7);
+        }
+
+        /* ================= BOTTOM TEXT ================= */
+        .switch-text {
+            margin-top: 14px;
+            font-size: 14px;
+            color: var(--gold);
+        }
+
+        .switch-text a {
+            color: var(--fire-red);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .switch-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* ================= RESPONSIVE ================= */
+        @media (max-width: 576px) {
+            .auth-container::before {
+                transform: translateX(45%);
+                border-radius: 0;
+            }
+
+            .auth-card {
+                padding: 24px 18px;
+                border-radius: 16px;
+            }
+
+            .auth-card h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
 </head>
 
 <body>

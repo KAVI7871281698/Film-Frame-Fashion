@@ -1,15 +1,34 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block content %}
 
-<!-- BANNER -->
-<section class="banner-video">
-    <video autoplay muted loop playsinline>
-        <source src="{% static 'video/banner_video.mp4' %}" type="video/mp4">
-    </video>
+<!-- ================= BANNER (3 COLUMN GRI     D) ================= -->
+<section class="banner-grid-row">
+
+    <!-- 1st Column : Image -->
+    {% for i in banner %}
+    <div class="banner-col">
+        <img src="{{ i.bannerimg1.url }}" alt="Banner Left">
+    </div>
+
+    <!-- 2nd Column : Video -->
+    <div class="banner-col center-video">
+        <video autoplay muted loop playsinline>
+            <source src="{{ i.bannervideo.url }}" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- 3rd Column : Image -->
+    <div class="banner-col">
+        <img src="{{ i.bannerimg2.url }}" alt="Banner Right">
+    </div>
+
+    {% endfor %}
+
 </section>
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 <section class="hero">
     <h1>
         <span>Film.</span>
@@ -28,7 +47,7 @@
     </div>
 </section>
 
-<!-- STATS -->
+<!-- ================= STATS ================= -->
 <section class="stats">
     <div>
         <strong>50+</strong>
@@ -43,4 +62,5 @@
         <p>Cinema Inspired</p>
     </div>
 </section>
+
 {% endblock %}

@@ -1,60 +1,259 @@
 {% load static %}
-<link rel="stylesheet" href="{% static 'order_now.css' %}">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Summary</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-black: #000;
+            --dark-black: #111;
+            --gold: #d4af37;
+            --fire-red: #e50914;
+            --soft-gray: #aaa;
+            --border: rgba(212,175,55,0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background: var(--bg-black);
+            color: var(--gold);
+        }
+
+        /* ================= CONTAINER ================= */
+        .checkout-container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+
+        /* ================= HEADER ================= */
+        .checkout-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .checkout-header h1 {
+            font-size: 32px;
+            font-weight: 600;
+        }
+
+        .checkout-header p {
+            color: var(--soft-gray);
+            margin-top: 6px;
+        }
+
+        /* ================= CARD ================= */
+        .checkout-card {
+            background: var(--dark-black);
+            border-radius: 14px;
+            padding: 20px;
+            border: 1px solid var(--border);
+            box-shadow: 0 0 20px rgba(229,9,20,0.25);
+            margin-bottom: 30px;
+        }
+
+        /* ================= TABLE ================= */
+        .checkout-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .checkout-table th {
+            text-align: left;
+            padding: 12px;
+            font-size: 14px;
+            border-bottom: 1px solid #222;
+            color: var(--fire-red);
+        }
+
+        .checkout-table td {
+            padding: 14px 12px;
+            font-size: 14px;
+            border-bottom: 1px solid #1c1c1c;
+            color: var(--gold);
+        }
+
+        .product-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .product-info img {
+            width: 55px;
+            height: 55px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 1px solid var(--border);
+        }
+
+        /* ================= FOOTER ================= */
+        .checkout-footer {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 25px;
+        }
+
+        /* ================= DELIVERY ================= */
+        .delivery-box {
+            background: var(--dark-black);
+            padding: 20px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            box-shadow: 0 0 20px rgba(229,9,20,0.2);
+        }
+
+        .delivery-box label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14px;
+            color: var(--fire-red);
+        }
+
+        .delivery-box textarea,
+        .delivery-box input {
+            width: 100%;
+            padding: 10px;
+            background: #000;
+            border: 1px solid #333;
+            color: var(--gold);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        textarea {
+            height: 90px;
+            resize: none;
+        }
+
+        /* ================= TOTAL ================= */
+        .total-box {
+            background: var(--dark-black);
+            padding: 22px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            box-shadow: 0 0 25px rgba(229,9,20,0.35);
+            text-align: center;
+        }
+
+        .total-box h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: var(--soft-gray);
+        }
+
+        .total-box h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        /* ================= BUTTON ================= */
+        .order-btn {
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: 500;
+            background: var(--fire-red);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 0 18px rgba(229,9,20,0.6);
+        }
+
+        .order-btn:hover {
+            background: #b20710;
+        }
+
+        /* ================= RESPONSIVE ================= */
+        @media (max-width: 768px) {
+            .checkout-footer {
+                grid-template-columns: 1fr;
+            }
+
+            .checkout-table th,
+            .checkout-table td {
+                font-size: 13px;
+            }
+
+            .product-info span {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
 
 <div class="checkout-container">
 
-  <div class="checkout-header">
-    <h1>🧾 Order Summary</h1>
-    <p>Review your items before placing the order</p>
-  </div>
-
-  <!-- CART ITEMS -->
-  <div class="checkout-card">
-    <table class="checkout-table">
-      <thead>
-        <tr>
-          <th>Product</th>
-          <th>Price</th>
-          <th>Qty</th>
-          <th>Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for item in cart_items %}
-        <tr>
-          <td class="product-info">
-            <img src="{{ item.add_to_cart_product.product_img.url }}">
-            <span>{{ item.add_to_cart_product.product_name }}</span>
-          </td>
-          <td>₹{{ item.add_to_cart_product.product_price }}</td>
-          <td>{{ item.quantity }}</td>
-          <td><strong>₹{{ item.total_price }}</strong></td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  </div>
-
-  <!-- DELIVERY FORM -->
-  <form method="POST" action="{% url 'order_now' %}" class="checkout-footer">
-    {% csrf_token %}
-
-    <div class="delivery-box">
-      <label>📍 Delivery Address</label>
-      <textarea name="delivery_address" required></textarea>
-
-      <label>📅 Delivery Date</label>
-      <input type="date" name="delivery_date" required>
+    <div class="checkout-header">
+        <h1>🧾 Order Summary</h1>
+        <p>Review your items before placing the order</p>
     </div>
 
-    <div class="total-box">
-      <h3>Total Amount</h3>
-      <h2>₹{{ total_amount }}</h2>
-
-      <button type="submit" class="order-btn">
-        ✅ Place Order
-      </button>
+    <!-- CART ITEMS -->
+    <div class="checkout-card">
+        <table class="checkout-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart_items %}
+                <tr>
+                    <td class="product-info">
+                        <img src="{{ item.add_to_cart_product.product_img.url }}">
+                        <span>{{ item.add_to_cart_product.product_name }}</span>
+                    </td>
+                    <td>₹{{ item.add_to_cart_product.product_price }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td><strong>₹{{ item.total_price }}</strong></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
-  </form>
+
+    <!-- DELIVERY FORM -->
+    <form method="POST" action="{% url 'order_now' %}" class="checkout-footer">
+        {% csrf_token %}
+
+        <div class="delivery-box">
+            <label>📍 Delivery Address</label>
+            <textarea name="delivery_address" required></textarea>
+
+            <label>📅 Delivery Date</label>
+            <input type="date" name="delivery_date" required>
+        </div>
+
+        <div class="total-box">
+            <h3>Total Amount</h3>
+            <h2>₹{{ total_amount }}</h2>
+
+            <button type="submit" class="order-btn">
+                ✅ Place Order
+            </button>
+        </div>
+    </form>
 
 </div>
+
+</body>
+</html>

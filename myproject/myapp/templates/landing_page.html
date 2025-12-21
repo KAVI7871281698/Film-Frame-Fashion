@@ -1,16 +1,31 @@
-{% extends 'landing_base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 
 {% block content %}
 
-<!-- BANNER -->
-<section class="banner-video">
-    <video autoplay muted loop playsinline>
-        <source src="{% static 'video/banner_video.mp4' %}" type="video/mp4">
-    </video>
+<!-- ================= BANNER (3 COLUMN GRID) ================= -->
+<section class="banner-grid-row">
+
+    <!-- 1st Column : Image -->
+    <div class="banner-col">
+        <img src="{% static 'img/company_logo.png' %}" alt="Banner Left">
+    </div>
+
+    <!-- 2nd Column : Video -->
+    <div class="banner-col center-video">
+        <video autoplay muted loop playsinline>
+            <source src="{% static 'video/banner_video.mp4' %}" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- 3rd Column : Image -->
+    <div class="banner-col">
+        <img src="{% static 'img/company_logo.png' %}" alt="Banner Right">
+    </div>
+
 </section>
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 <section class="hero">
     <h1>
         <span>Film.</span>
@@ -29,7 +44,7 @@
     </div>
 </section>
 
-<!-- STATS -->
+<!-- ================= STATS ================= -->
 <section class="stats">
     <div>
         <strong>50+</strong>

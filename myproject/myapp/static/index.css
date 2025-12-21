@@ -217,3 +217,21 @@ body {
         font-size: 13px;
     }
 }
+
+.cart-icon {
+    position: relative;
+    font-size: 22px;
+    text-decoration: none;
+}
+
+.cart-count {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    background: red;
+    color: white;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 50%;
+}
+

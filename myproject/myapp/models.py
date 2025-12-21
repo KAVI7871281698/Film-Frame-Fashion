@@ -24,28 +24,64 @@ class product(models.Model):
     product_des = models.CharField(max_length=200)
     product_price = models.DecimalField(max_digits=10, decimal_places=2)
     
+class home(models.Model):
+    bannerimg1 = models.ImageField(upload_to='uploads', null=True,blank=True)
+    bannerimg2 = models.ImageField(upload_to='uploads', null=True,blank=True)
+    bannervideo = models.FileField(upload_to='uploads/banners/videos/',null=True,blank=True)
+
 
 class add_to_cart(models.Model):
-    user = models.ForeignKey(Register, on_delete=models.CASCADE)
-    add_to_cart_product = models.ForeignKey(product, on_delete=models.CASCADE)
-    
+    user = models.ForeignKey(
+        Register,
+        on_delete=models.CASCADE,
+        related_name='cart_items'
+    )
+
+    add_to_cart_product = models.ForeignKey(
+        product,
+        on_delete=models.CASCADE,
+        related_name='cart_products'
+    )
+
     quantity = models.PositiveIntegerField(default=1)
 
     added_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        # 🚫 Prevent same product being added twice for same user
+        unique_together = ('user', 'add_to_cart_product')
+        verbose_name = "Cart Item"
+        verbose_name_plural = "Cart Items"
 
     @property
     def total_price(self):
         return self.quantity * self.add_to_cart_product.product_price
 
     def __str__(self):
-        return f"{self.add_to_cart_product.product_name} - {self.quantity}"
+        return f"{self.user.email} | {self.add_to_cart_product.product_name} x {self.quantity}"
+
     
 
 class Order(models.Model):
     user = models.ForeignKey(Register, on_delete=models.CASCADE)
     total_amount = models.DecimalField(max_digits=10, decimal_places=2)
+
     delivery_address = models.TextField(null=True, blank=True)
     delivery_date = models.DateField(null=True, blank=True)
+
+    razorpay_order_id = models.CharField(max_length=100, null=True, blank=True)
+    razorpay_payment_id = models.CharField(max_length=100, null=True, blank=True)
+
+    payment_status = models.CharField(
+        max_length=20,
+        choices=[
+            ('Pending', 'Pending'),
+            ('Paid', 'Paid'),
+            ('Failed', 'Failed'),
+        ],
+        default='Pending'
+    )
+
     status = models.CharField(
         max_length=20,
         choices=[
@@ -56,10 +92,12 @@ class Order(models.Model):
         ],
         default='Pending'
     )
+
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"Order #{self.id} - {self.user.email}"
+
 
 
     

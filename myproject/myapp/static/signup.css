@@ -1,13 +1,15 @@
+/* ================= THEME COLORS ================= */
 :root {
-    --primary: #4EA685;
-    --secondary: #57B894;
+    --bg-black: #000000;
+    --dark-black: #0b0b0b;
+    --gold: #d4af37;
+    --fire-red: #e50914;
+    --gray: #1a1a1a;
+    --gray-2: #888888;
     --white: #ffffff;
-    --gray: #efefef;
-    --gray-2: #757575;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
+/* ================= GLOBAL ================= */
 * {
     margin: 0;
     padding: 0;
@@ -17,6 +19,8 @@
 
 html, body {
     height: 100%;
+    background: var(--bg-black);
+    color: var(--gold);
 }
 
 /* ================= CONTAINER ================= */
@@ -30,19 +34,24 @@ html, body {
     overflow: hidden;
 }
 
-/* Animated background */
+/* Cinematic animated background */
 .auth-container::before {
     content: "";
     position: absolute;
     inset: 0;
     width: 300vw;
     height: 100vh;
-    background: linear-gradient(-45deg, var(--primary), var(--secondary));
+    background: linear-gradient(
+        -45deg,
+        #200000,
+        var(--fire-red),
+        #200000
+    );
     transform: translateX(35%);
     border-bottom-right-radius: max(60vw, 50vh);
     border-top-left-radius: max(60vw, 50vh);
     animation: bgslide 1s ease-in-out forwards;
-    box-shadow: rgba(0,0,0,0.35) 0 5px 15px;
+    box-shadow: rgba(229, 9, 20, 0.35) 0 5px 30px;
 }
 
 @keyframes bgslide {
@@ -55,11 +64,12 @@ html, body {
     z-index: 10;
     width: 90%;
     max-width: 420px;
-    background: var(--white);
+    background: var(--dark-black);
     padding: 30px 25px;
     border-radius: 20px;
     text-align: center;
-    box-shadow: rgba(0,0,0,0.35) 0 5px 15px;
+    border: 1px solid #222;
+    box-shadow: 0 0 30px rgba(0,0,0,0.85);
     animation: fadeUp 0.8s ease-in-out;
 }
 
@@ -73,16 +83,18 @@ html, body {
     font-size: 30px;
     font-weight: 700;
     margin-bottom: 18px;
+    color: var(--gold);
 }
 
 /* ================= ALERT ================= */
 .alert {
-    background: #ffe3e3;
-    color: #b30000;
+    background: #2a0000;
+    color: var(--fire-red);
     padding: 8px;
     border-radius: 6px;
     font-size: 14px;
     margin-bottom: 12px;
+    border: 1px solid #400000;
 }
 
 /* ================= INPUT ================= */
@@ -97,7 +109,7 @@ html, body {
     top: 50%;
     transform: translateY(-50%);
     font-size: 18px;
-    color: var(--gray-2);
+    color: var(--gold);
 }
 
 .input-group input {
@@ -105,38 +117,56 @@ html, body {
     padding: 12px 40px;
     background: var(--gray);
     border-radius: 8px;
-    border: none;
+    border: 1px solid #222;
     outline: none;
     font-size: 15px;
+    color: var(--gold);
+}
+
+.input-group input::placeholder {
+    color: var(--gray-2);
+}
+
+/* Focus glow */
+.input-group input:focus {
+    border-color: var(--fire-red);
+    box-shadow: 0 0 8px rgba(229, 9, 20, 0.6);
 }
 
 /* ================= BUTTON ================= */
 button {
     width: 100%;
     padding: 12px;
-    background: var(--primary);
+    background: var(--fire-red);
     color: var(--white);
     font-size: 16px;
     border-radius: 8px;
     border: none;
     cursor: pointer;
-    margin-top: 8px;
+    margin-top: 10px;
+    transition: 0.3s;
 }
 
 button:hover {
-    background: #3b8b6f;
+    background: #b20710;
+    box-shadow: 0 0 15px rgba(229, 9, 20, 0.7);
 }
 
 /* ================= BOTTOM TEXT ================= */
 .switch-text {
-    margin-top: 12px;
+    margin-top: 14px;
     font-size: 14px;
+    color: var(--gold);
 }
 
 .switch-text a {
-    color: var(--primary);
+    color: var(--fire-red);
     font-weight: 600;
     text-decoration: none;
+}
+
+.switch-text a:hover {
+    text-decoration: underline;
 }
 
 /* ================= RESPONSIVE ================= */
