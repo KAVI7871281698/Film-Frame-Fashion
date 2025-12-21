@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import RegexValidator
+from django.utils import timezone
 
 phone_validator = RegexValidator(
     regex=r'^\d{10}$',
@@ -48,7 +49,6 @@ class add_to_cart(models.Model):
     added_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        # 🚫 Prevent same product being added twice for same user
         unique_together = ('user', 'add_to_cart_product')
         verbose_name = "Cart Item"
         verbose_name_plural = "Cart Items"
@@ -97,7 +97,37 @@ class Order(models.Model):
 
     def __str__(self):
         return f"Order #{self.id} - {self.user.email}"
+    
 
+class Coupon(models.Model):
+    code = models.CharField(max_length=20, unique=True)
+
+    DISCOUNT_TYPE = (
+        ('flat', 'Flat Amount'),
+        ('percent', 'Percentage'),
+    )
+    discount_type = models.CharField(max_length=10, choices=DISCOUNT_TYPE)
+    discount_value = models.PositiveIntegerField()
+
+    min_order_amount = models.PositiveIntegerField(default=0)
+
+    is_active = models.BooleanField(default=True)
+    expiry_date = models.DateField()
+
+    max_uses = models.PositiveIntegerField(default=10)
+    used_count = models.PositiveIntegerField(default=0)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def is_valid(self):
+        return (
+            self.is_active and
+            self.used_count < self.max_uses and
+            self.expiry_date >= timezone.now().date()
+        )
+
+    def __str__(self):
+        return self.code
 
 
     

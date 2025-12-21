@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Register, product, add_to_cart, Order, home
+from .models import Register, product, add_to_cart, Order, home, Coupon
 from django.contrib import messages
 import razorpay
 from django.conf import settings
@@ -284,6 +284,7 @@ def order_now(request):
         "amount": amount_paise,
         "total_amount": total_amount
     })
+    
 
 def payment_success(request):
     payment_id = request.GET.get('payment_id')
